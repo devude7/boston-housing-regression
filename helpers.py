@@ -1,10 +1,10 @@
 import numpy as np
 
-def sigmoid_activation(X):
-    return 1 / (1 + np.exp(-X))
+def linear_activation(X):
+    return X
 
-def sigmoid_derivative(X):
-    return X*(1-X)
+def linear_derivative():
+    return 1 
 
 def predict(X, W):
-    return sigmoid_activation(np.dot(X, W))
+    return linear_activation(np.dot(X, W))
