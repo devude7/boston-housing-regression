@@ -8,7 +8,7 @@ data.columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD',
 
 # hyperparameters
 epochs = 25
-lr = 0.001
+lr = 0.1
 
 data = data.drop('BIAS_COL', axis=1)
 X = data.drop('MEDV', axis=1)
@@ -16,7 +16,15 @@ y = data.iloc[:, 13]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3 , random_state=32)
 
-nn = NeuralNetwork([X.shape[1], 16, 8, 1], lr)
+# train the network
+print("[INFO] training network...")
+nn = NeuralNetwork([X.shape[1], 2, 2, 1])
+print("[INFO] {}".format(nn))
 nn.fit(X_train, y_train, epochs=1000)
 
+# evaluate the network
+print("[INFO] evaluating network...")
+predictions = nn.predict(X_test)
+error = predictions - np.atleast_2d(y_test)
+print(f'Global error: {np.sum(error)}')
 

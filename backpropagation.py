@@ -41,7 +41,6 @@ class NeuralNetwork:
         # FORWARD PASS
         activations = [np.atleast_2d(x)]
         for layer in np.arange(0, len(self.W)):
-            # preds = np.dot(activations[-1], self.W[layer]) # TODO: do sprawdzenia czy to nie wyjdzie na to samo
             preds = np.dot(activations[layer], self.W[layer])
             out = self.sigmoid(preds)
 
