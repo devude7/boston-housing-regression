@@ -32,9 +32,9 @@ predictions = nn.predict(X_test)
 mse = np.mean((y_test - predictions) ** 2)
 print(f"Mean Squared Error: {mse:.2f}")
 
-# Linear regresion graph
+#  Regresion graph
 plt.scatter(y_test, predictions)
-plt.title("Linear regression - Boston Housing")
+plt.title("Regression - Boston Housing")
 plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red')
 plt.show()
 
